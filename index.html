@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>鍼処北風｜飯田橋 夜の鍼治療院（ルート治療）</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif; background: #faf9f7; color: #2c2c2c; line-height: 1.9; font-size: 18px; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      color: #f0ebe0;
+      text-align: center;
+      padding: 90px 24px 72px;
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('img_hero_kitakaze.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.38);
+      z-index: 0;
+    }
+    .hero > *:not(.hero-bg) { position: relative; z-index: 1; }
+    .hero .badge {
+      display: inline-block;
+      border: 1px solid #c8b98a;
+      color: #c8b98a;
+      font-size: 11px;
+      letter-spacing: 3px;
+      padding: 5px 16px;
+      margin-bottom: 28px;
+      font-family: sans-serif;
+    }
+    .hero h1 {
+      font-size: clamp(26px, 5.5vw, 44px);
+      font-weight: 400;
+      letter-spacing: 3px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .hero .sub {
+      font-size: 15px;
+      color: #c8b98a;
+      letter-spacing: 2px;
+      line-height: 2;
+      margin-bottom: 36px;
+      font-family: sans-serif;
+    }
+
+    /* ===== CTA BUTTON ===== */
+    .cta-btn {
+      display: inline-block;
+      background: #c8a96a;
+      color: #fff;
+      font-size: 16px;
+      font-family: sans-serif;
+      font-weight: bold;
+      letter-spacing: 1px;
+      padding: 18px 36px;
+      border-radius: 50px;
+      margin: 8px auto;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      transition: opacity 0.2s;
+      max-width: 340px;
+      width: 90%;
+    }
+    .cta-btn:hover { opacity: 0.85; }
+    .cta-note {
+      font-size: 12px;
+      font-family: sans-serif;
+      color: #aaa;
+      margin-top: 8px;
+      letter-spacing: 1px;
+    }
+
+    /* ===== SECTION BASE ===== */
+    section { padding: 64px 24px; }
+    .inner { max-width: 680px; margin: 0 auto; }
+    .sec-label {
+      font-family: sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: #c8a96a;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    h2 {
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 400;
+      letter-spacing: 2px;
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    h3 {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    p { margin-bottom: 16px; }
+
+    /* ===== PROBLEM ===== */
+    .problem { background: #f5f2ed; }
+    .checklist { list-style: none; margin: 24px 0; }
+    .checklist li {
+      padding: 12px 0 12px 36px;
+      position: relative;
+      border-bottom: 1px solid #e0dbd2;
+      font-size: 17px;
+    }
+    .checklist li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #c8a96a;
+      font-family: sans-serif;
+    }
+    .problem-note {
+      margin-top: 24px;
+      font-size: 16px;
+      color: #555;
+      font-style: italic;
+    }
+
+    /* ===== AGGRAVATION ===== */
+    .aggravation { background: #2c2c2c; color: #e8e3da; }
+    .aggravation h2 { color: #c8b98a; }
+    .aggravation p { color: #ccc; }
+
+    /* ===== SOLUTION ===== */
+    .solution-card {
+      background: #fff;
+      border: 1px solid #e0dbd2;
+      border-radius: 4px;
+      padding: 28px 24px;
+      margin-bottom: 20px;
+    }
+    .solution-card .num {
+      font-family: sans-serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: #c8a96a;
+      margin-bottom: 8px;
+    }
+    .solution-img { margin: 20px 0; border-radius: 4px; }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section { background: #f5f2ed; text-align: center; }
+    .cta-section h2 { margin-bottom: 12px; }
+
+    /* ===== TRUST ===== */
+    .trust { background: #faf9f7; }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 28px 0;
+    }
+    .trust-item {
+      text-align: center;
+      padding: 20px 12px;
+      background: #fff;
+      border: 1px solid #e0dbd2;
+      border-radius: 4px;
+    }
+    .trust-item .num {
+      font-size: 28px;
+      font-family: sans-serif;
+      color: #c8a96a;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+    .trust-item .label {
+      font-size: 12px;
+      font-family: sans-serif;
+      color: #777;
+      letter-spacing: 2px;
+      margin-top: 4px;
+    }
+
+    /* ===== PROFILE ===== */
+    .profile { background: #f5f2ed; }
+    .profile-img { border-radius: 4px; margin: 24px 0; max-width: 320px; }
+
+    /* ===== PRICE ===== */
+    .price { background: #fff; }
+    .price-card {
+      border: 1px solid #e0dbd2;
+      border-radius: 4px;
+      padding: 28px 24px;
+      margin-bottom: 20px;
+    }
+    .price-card.featured { border-color: #c8a96a; background: #fdf9f3; }
+    .price-tag {
+      font-size: 28px;
+      font-family: sans-serif;
+      font-weight: bold;
+      color: #c8a96a;
+      margin: 8px 0;
+    }
+    .price-original {
+      font-size: 14px;
+      color: #999;
+      font-family: sans-serif;
+      text-decoration: line-through;
+    }
+    .price-note { font-size: 13px; color: #777; font-family: sans-serif; margin-top: 8px; }
+
+    /* ===== VOICES ===== */
+    .voices { background: #f5f2ed; }
+    .voice-card {
+      background: #fff;
+      border-radius: 4px;
+      padding: 28px 24px;
+      margin-bottom: 20px;
+      border-left: 3px solid #c8a96a;
+    }
+    .voice-tag {
+      font-family: sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #c8a96a;
+      margin-bottom: 8px;
+    }
+    .voice-attr {
+      font-size: 13px;
+      font-family: sans-serif;
+      color: #999;
+      margin-top: 12px;
+    }
+    .voice-img { margin: 16px 0; border-radius: 4px; }
+
+    /* ===== FLOW ===== */
+    .flow { background: #fff; }
+    .flow-steps { margin: 28px 0; }
+    .flow-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid #e0dbd2;
+    }
+    .flow-step:last-child { border-bottom: none; }
+    .step-num {
+      font-family: sans-serif;
+      font-size: 28px;
+      color: #c8a96a;
+      font-weight: bold;
+      flex-shrink: 0;
+      width: 40px;
+    }
+    .step-body h3 { margin-bottom: 6px; }
+
+    /* ===== FAQ ===== */
+    .faq { background: #f5f2ed; }
+    .faq-item { padding: 20px 0; border-bottom: 1px solid #e0dbd2; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-weight: bold; margin-bottom: 10px; }
+    .faq-q::before { content: 'Q. '; color: #c8a96a; font-family: sans-serif; }
+
+    /* ===== FINAL CTA ===== */
+    .final-cta { background: #2c2c2c; color: #e8e3da; text-align: center; }
+    .final-cta h2 { color: #c8b98a; }
+    .final-cta .limit-badge {
+      display: inline-block;
+      background: #c8a96a;
+      color: #fff;
+      font-family: sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      padding: 4px 16px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .disclaimer { font-size: 12px; font-family: sans-serif; color: #777; margin-top: 20px; line-height: 1.7; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #1a1a1a;
+      color: #888;
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      font-family: sans-serif;
+      letter-spacing: 1px;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 480px) {
+      .trust-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .cta-btn { font-size: 15px; padding: 16px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="badge">HARIDOKORO KITAKAZE · IIDABASHI</div>
+  <h1>他で治らなかった、<br>その体へ。</h1>
+  <p class="sub">
+    夜21時、飯田橋の完全個室で。<br>
+    コリの根っこに届く鍼治療。
+  </p>
+  <a href="#line" class="cta-btn">LINEで初回相談する（モニター¥10,000）</a>
+  <p class="cta-note">相談だけでも大丈夫です · 予約後キャンセル可</p>
+</section>
+
+<!-- ===== PROBLEM ===== -->
+<section class="problem">
+  <div class="inner">
+    <p class="sec-label">Problem</p>
+    <h2>こんな経験、<br>ありませんか？</h2>
+    <img src="img_problem_kitakaze.jpg" alt="疲れた表情のビジネスパーソン" class="solution-img" />
+    <ul class="checklist">
+      <li>マッサージに行くと楽になるが、3日で戻る</li>
+      <li>整体・カイロに通ったが、根本的には変わらない</li>
+      <li>病院で検査したら「異常なし」「ストレスですね」と言われた</li>
+      <li>昼間は仕事で治療院に行けない</li>
+      <li>「もうこういう体質なんだ」と半ば諦めている</li>
+    </ul>
+    <p class="problem-note">ひとつでも当てはまるなら、それは体質ではありません。<br>コリの「根っこ」まで届いていないことが、原因かもしれません。</p>
+  </div>
+</section>
+
+<!-- ===== AGGRAVATION ===== -->
+<section class="aggravation">
+  <div class="inner">
+    <p class="sec-label" style="color:#c8b98a;">Warning</p>
+    <h2>「また整体で」を<br>繰り返すほど、<br>体は変わりにくくなります。</h2>
+    <p>慢性的な肩こり・腰痛・頭痛を誤魔化し続けると、症状は蓄積し、睡眠の質が落ち、集中力が続かなくなります。</p>
+    <p>「様子を見る」時間が長くなるほど、改善には時間がかかります。</p>
+  </div>
+</section>
+
+<!-- ===== SOLUTION ===== -->
+<section class="solution">
+  <div class="inner">
+    <p class="sec-label">Solution</p>
+    <h2>ルート治療が<br>「他で改善しなかった症状」に<br>届く理由</h2>
+
+    <div class="solution-card">
+      <p class="num">FEATURE 01</p>
+      <h3>コリを「立体」で捉える</h3>
+      <img src="img_solution_route.jpg" alt="ルート治療のイメージ" class="solution-img" />
+      <p>一般的なマッサージは表面の一点をほぐします。しかしコリは上下・左右・奥行きを持つ立体構造です。ルート治療は、その3D的なコリの形状を指先で読み取り、根（ルート）に沿って鍼を進めていきます。</p>
+    </div>
+
+    <div class="solution-card">
+      <p class="num">FEATURE 02</p>
+      <h3>蓄積型の効果</h3>
+      <p>1回で「劇的に変わった」は目指しません。回数を重ねるごとに体が変わっていく実感があります。これは表面ではなく、根本にアプローチしているからです。</p>
+    </div>
+
+    <div class="solution-card">
+      <p class="num">FEATURE 03</p>
+      <h3>月10名限定・完全個室</h3>
+      <p>一人ひとりの体を深く読むためには、数を制限する必要があります。月10名という制限は、あなたへの集中の証です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MID CTA ===== -->
+<section class="cta-section">
+  <div class="inner">
+    <h2>まずは相談だけでも<br>構いません。</h2>
+    <p style="margin-bottom:28px;font-family:sans-serif;font-size:16px;">治療の内容・症状・料金について、LINEでお気軽にどうぞ。</p>
+    <a href="#line" class="cta-btn">LINEで相談する（初回モニター¥10,000）</a>
+  </div>
+</section>
+
+<!-- ===== TRUST ===== -->
+<section class="trust">
+  <div class="inner">
+    <p class="sec-label">Trust</p>
+    <h2>実績・信頼</h2>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <p class="num">10年</p>
+        <p class="label">鍼灸師歴</p>
+      </div>
+      <div class="trust-item">
+        <p class="num">1,000+</p>
+        <p class="label">施術実績</p>
+      </div>
+      <div class="trust-item">
+        <p class="num">月10名</p>
+        <p class="label">受入上限</p>
+      </div>
+      <div class="trust-item">
+        <p class="num">21-23時</p>
+        <p class="label">営業時間</p>
+      </div>
+    </div>
+    <p style="font-family:sans-serif;font-size:14px;color:#777;">鍼灸師国家資格 / ルート治療認定 / 飯田橋駅B3出口 徒歩2分</p>
+  </div>
+</section>
+
+<!-- ===== PROFILE ===== -->
+<section class="profile">
+  <div class="inner">
+    <p class="sec-label">Profile</p>
+    <h2>「どこに行っても<br>良くならない」を<br>聞き続けた10年。</h2>
+    <img src="img_profile_kitakaze.jpg" alt="院長の温かみある写真" class="profile-img" />
+    <p>整体、カイロ、一般の鍼灸院。どこかで必ず「また戻ってしまう」が起きている。10年間、1,000人以上の体を診てきて気づいたことがあります。多くの場合、コリの「奥」まで届いていないのです。</p>
+    <p>だからルート治療を選びました。表面ではなく、コリの根っこへ。夜21時から開けているのも、昼に来られない働く人たちのためです。月10名しか受け入れないのも、「あなたの体を変える」ことに集中したいからです。</p>
+    <p>体のことで諦めかけているなら、一度だけ話しかけてください。</p>
+  </div>
+</section>
+
+<!-- ===== PRICE ===== -->
+<section class="price">
+  <div class="inner">
+    <p class="sec-label">Price</p>
+    <h2>料金・コース</h2>
+
+    <div class="price-card featured">
+      <p style="font-family:sans-serif;font-size:11px;letter-spacing:3px;color:#c8a96a;">初めての方限定</p>
+      <h3>初回モニター</h3>
+      <p class="price-tag">¥10,000</p>
+      <p class="price-original">通常 ¥12,000〜</p>
+      <p class="price-note">初めての方が安心して試せる特別価格<br>所要時間：60〜90分</p>
+    </div>
+
+    <div class="price-card">
+      <h3>ルート治療（2回目以降）</h3>
+      <p class="price-tag">¥12,000〜</p>
+      <p class="price-note">所要時間：60〜90分</p>
+    </div>
+
+    <div class="price-card">
+      <h3>ルート鬼美容鍼</h3>
+      <p class="price-tag">¥12,000</p>
+      <p class="price-note">所要時間：60分</p>
+    </div>
+
+    <p style="font-family:sans-serif;font-size:13px;color:#999;margin-top:8px;">すべて完全予約制・完全個室 / 保険外診療（自費）</p>
+  </div>
+</section>
+
+<!-- ===== VOICES ===== -->
+<section class="voices">
+  <div class="inner">
+    <p class="sec-label">Voice</p>
+    <h2>お客様の変化</h2>
+
+    <div class="voice-card">
+      <p class="voice-tag">BEFORE → AFTER</p>
+      <p>毎週マッサージに行っても、3日で首肩が戻っていました。3回通ったあたりから、朝起きたときの重さがなくなってきました。</p>
+      <img src="img_voice1_kitakaze.jpg" alt="表情が明るくなった女性" class="voice-img" />
+      <p style="font-size:16px;color:#555;">夜に来られることと、先生の説明が理論的で「なぜ治らなかったか」が初めてわかった気がしました。</p>
+      <p class="voice-attr">30代・会社員・女性</p>
+    </div>
+
+    <div class="voice-card">
+      <p class="voice-tag">BEFORE → AFTER</p>
+      <p>病院で「ストレスですね」と言われ続けて半年。薬も効かず途方に暮れていました。自律神経が少しずつ整ってきた感覚があります。眠れるようになりました。</p>
+      <p style="font-size:16px;color:#555;">月10名という少なさに、逆に安心しました。個室なので緊張せずに話せました。</p>
+      <p class="voice-attr">40代・管理職・男性</p>
+    </div>
+
+    <div class="voice-card">
+      <p class="voice-tag">BEFORE → AFTER</p>
+      <p>以前の整体で強く押されてから、体を触られることが怖くなっていました。鍼は怖くなかったです。気づいたら体が変わり始めていました。</p>
+      <p style="font-size:16px;color:#555;">LINEで相談したとき、不安を全部聞いてもらえたので予約できました。</p>
+      <p class="voice-attr">30代・フリーランス・女性</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FLOW ===== -->
+<section class="flow">
+  <div class="inner">
+    <p class="sec-label">How to Start</p>
+    <h2>ご利用の流れ</h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <p class="step-num">01</p>
+        <div class="step-body">
+          <h3>LINEで「相談」と送る</h3>
+          <p>料金・症状・不安、なんでも聞いてください。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <p class="step-num">02</p>
+        <div class="step-body">
+          <h3>初回予約を確定</h3>
+          <p>夜21〜23時の中でご都合の良い日時を選びます。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <p class="step-num">03</p>
+        <div class="step-body">
+          <h3>飯田橋の完全個室へ</h3>
+          <p>B3出口から徒歩2分。夜の静かな個室でお待ちしています。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <p class="step-num">04</p>
+        <div class="step-body">
+          <h3>ルート治療スタート</h3>
+          <p>体のコリを3Dで読み取り、根っこへアプローチします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <div class="inner">
+    <p class="sec-label">FAQ</p>
+    <h2>よくある質問</h2>
+
+    <div class="faq-item">
+      <p class="faq-q">鍼は痛いですか？</p>
+      <p>「思っていたより痛くなかった」とおっしゃる方がほとんどです。使用する鍼は非常に細く、刺激も最小限に調整しています。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">何回通えば変わりますか？</p>
+      <p>3〜5回を一つの目安にしていただいています。ルート治療は蓄積型のため、回数を重ねるごとに体の変化を実感される方が多いです。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">症状がひどくても来られますか？</p>
+      <p>はい。むしろ「どこに行っても良くならなかった」方が対象です。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">保険は使えますか？</p>
+      <p>申し訳ありませんが、自費診療のみとなります。初回モニターは¥10,000でご案内しています。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">夜21時以外の時間はありますか？</p>
+      <p>現在は夜21:00〜23:00のみの対応です。完全個室・完全予約制のため、この時間帯に集中しています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta" id="line">
+  <div class="inner">
+    <p class="limit-badge">今月 残り数名</p>
+    <h2>「また今度」を<br>繰り返してきた体に、<br>今夜、向き合いませんか。</h2>
+    <p style="margin: 20px 0 32px; font-family:sans-serif; font-size:16px; color:#ccc;">初回の方は、モニター価格¥10,000でご案内します。<br>相談だけでも、大丈夫です。</p>
+
+    <!-- LINEリダイレクト用（友だち追加URLに変更） -->
+    <!-- <meta http-equiv="refresh" content="0.1;URL=https://line.me/R/ti/p/@YOUR_LINE_ID"> -->
+    <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="cta-btn">LINEで今月の枠を確認する（初回¥10,000）</a>
+
+    <p class="disclaimer">
+      ＊相談無料・予約後のキャンセルも可能です<br>
+      ＊「必ず治る」を約束するものではありません。体質・症状により個人差があります。<br>
+      ＊「治る」「治します」等の表現は使用していません（薬機法・景表法準拠）
+    </p>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <p>鍼処北風｜東京都千代田区 飯田橋</p>
+  <p style="margin-top:8px;">夜21:00〜23:00｜完全個室・完全予約制｜飯田橋駅B3出口 徒歩2分</p>
+  <p style="margin-top:16px;font-size:11px;color:#555;">© 2026 Haridokoro Kitakaze. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
