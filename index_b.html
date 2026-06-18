@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>鍼処北風｜飯田橋 夜の鍼治療院（ルート治療）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ivory:   #faf8f3;
+      --ivory2:  #f2ede4;
+      --gold:    #b8965a;
+      --gold-lt: #d4b27a;
+      --dark:    #111008;
+      --text:    #1a1610;
+      --muted:   #4a4438;
+      --border:  #e8e0d4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+      background: var(--ivory);
+      color: var(--text);
+      line-height: 2.1;
+      font-size: 16px;
+      font-weight: 400;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ── UTILITY ── */
+    .label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .divider {
+      width: 28px; height: 1px;
+      background: var(--gold);
+      margin: 14px 0 28px;
+    }
+    .divider-center { margin: 14px auto 28px; }
+    .inner { max-width: 640px; margin: 0 auto; padding: 0 28px; }
+    .inner-wide { max-width: 860px; margin: 0 auto; padding: 0 28px; }
+
+    /* ── CTA BUTTON ── */
+    .btn {
+      display: block;
+      width: fit-content;
+      min-width: 260px;
+      max-width: 340px;
+      margin: 0 auto;
+      background: var(--gold);
+      color: #fff;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      padding: 18px 36px;
+      text-align: center;
+      border: 1px solid var(--gold);
+      transition: all .3s;
+    }
+    .btn:hover { background: transparent; color: var(--gold); }
+    .btn-outline {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.5);
+      color: #fff;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.08); }
+    .btn-note {
+      font-family: sans-serif;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      margin-top: 12px;
+    }
+    .btn-note-dark {
+      font-family: sans-serif;
+      font-size: 11px;
+      letter-spacing: 1px;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    /* ════════════════════════════
+       HERO
+    ════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 80px 28px;
+      color: #f0ebe0;
+      overflow: hidden;
+    }
+    .hero__bg {
+      position: absolute; inset: 0;
+      background: url('img_hero_kitakaze.jpg') center/cover no-repeat;
+      filter: brightness(.7);
+      z-index: 0;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.15) 0%, rgba(0,0,0,.4) 100%);
+      z-index: 1;
+    }
+    .hero > * { position: relative; z-index: 2; }
+    .hero__badge {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 6px;
+      color: var(--gold-lt);
+      border: 1px solid rgba(200,178,122,.4);
+      padding: 6px 22px;
+      margin-bottom: 40px;
+    }
+    .hero__h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(30px, 6vw, 52px);
+      font-weight: 300;
+      letter-spacing: 6px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .hero__sub {
+      font-family: sans-serif;
+      font-size: 13px;
+      letter-spacing: 3px;
+      color: rgba(212,178,122,.85);
+      line-height: 2.4;
+      margin-bottom: 48px;
+    }
+    .hero__scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: sans-serif;
+      font-size: 9px;
+      letter-spacing: 4px;
+      color: rgba(255,255,255,.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero__scroll::after {
+      content: '';
+      display: block;
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.3), transparent);
+    }
+
+    /* ════════════════════════════
+       INTRO STRIP
+    ════════════════════════════ */
+    .intro-strip {
+      background: var(--dark);
+      color: rgba(240,235,224,.7);
+      text-align: center;
+      padding: 28px 28px;
+      font-family: sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+    }
+
+    /* ════════════════════════════
+       VOICES — 画像背景（Pattern B: FV直下）
+    ════════════════════════════ */
+    .voices {
+      position: relative;
+      padding: 100px 0;
+      overflow: hidden;
+    }
+    .voices__bg {
+      position: absolute; inset: 0;
+      background: url('img_voice1_kitakaze.jpg') center 30%/cover no-repeat;
+      filter: brightness(.35) saturate(.5);
+      z-index: 0;
+    }
+    .voices::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(8,6,3,.72);
+      z-index: 1;
+    }
+    .voices .inner { position: relative; z-index: 2; }
+    .voices .label { color: #7a6840; }
+    .voices .divider { background: #7a6840; }
+    .voices h2 {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 300;
+      color: #d8d0c0;
+      line-height: 1.9;
+      margin-bottom: 48px;
+    }
+    .voice-card {
+      border-top: 1px solid rgba(184,150,90,.2);
+      padding: 36px 0;
+    }
+    .voice-card:last-child { border-bottom: 1px solid rgba(184,150,90,.2); }
+    .voice-card__tag {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .voice-card__img { border-radius: 4px; margin: 20px 0; max-height: 240px; object-fit: cover; width: 100%; }
+    .voice-card__body {
+      font-size: 15px;
+      color: #d8d0c0;
+      line-height: 2;
+      margin-bottom: 20px;
+    }
+    .voice-card__quote {
+      font-size: 14px;
+      font-style: italic;
+      color: #a89880;
+      line-height: 2;
+      padding-left: 16px;
+      border-left: 1px solid rgba(184,150,90,.4);
+    }
+    .voice-card__attr {
+      font-family: sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #7a6850;
+      margin-top: 16px;
+    }
+
+    /* ════════════════════════════
+       PROBLEM — 画像背景
+    ════════════════════════════ */
+    .problem {
+      position: relative;
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      padding: 100px 0;
+      color: #f0ebe0;
+      overflow: hidden;
+    }
+    .problem__bg {
+      position: absolute; inset: 0;
+      background: url('img_problem_kitakaze.jpg') center/cover no-repeat;
+      filter: brightness(.45) saturate(.7);
+      z-index: 0;
+    }
+    .problem::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(10,8,4,.7) 0%, rgba(20,15,8,.5) 100%);
+      z-index: 1;
+    }
+    .problem .inner { position: relative; z-index: 2; }
+    .problem .label { color: #9a8060; }
+    .problem .divider { background: #6a5040; }
+    .problem h2 {
+      font-size: clamp(22px, 3.5vw, 30px);
+      font-weight: 300;
+      letter-spacing: 1px;
+      line-height: 1.9;
+      margin-bottom: 36px;
+      color: #e8e0d0;
+    }
+    .checklist { list-style: none; }
+    .checklist li {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      font-size: 15px;
+      color: #e8e0d0;
+      line-height: 1.8;
+    }
+    .checklist li::before {
+      content: '—';
+      color: var(--gold);
+      font-family: serif;
+      flex-shrink: 0;
+    }
+    .problem-note {
+      margin-top: 32px;
+      font-family: sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: #c8b888;
+      line-height: 2;
+    }
+
+    /* ════════════════════════════
+       AGGRAVATION
+    ════════════════════════════ */
+    .aggravation {
+      background: var(--ivory2);
+      padding: 80px 0;
+    }
+    .aggravation h2 {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 24px;
+    }
+    .aggravation p { color: var(--muted); font-size: 15px; }
+
+    /* ════════════════════════════
+       SOLUTION
+    ════════════════════════════ */
+    .solution { background: var(--ivory); padding: 100px 0; }
+    .solution h2 {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 48px;
+    }
+    .sol-cards { display: flex; flex-direction: column; gap: 0; }
+    .sol-card {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0 28px;
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+    }
+    .sol-card:last-child { border-bottom: 1px solid var(--border); }
+    .sol-card__num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+      padding-top: 4px;
+    }
+    .sol-card__body h3 {
+      font-size: 17px;
+      font-weight: 400;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+    .sol-card__body p { font-size: 14px; color: var(--muted); line-height: 2; margin-bottom: 0; }
+    .sol-card__img { grid-column: 2; margin: 20px 0 0; border-radius: 4px; }
+
+    /* ════════════════════════════
+       TRUST
+    ════════════════════════════ */
+    .trust {
+      position: relative;
+      padding: 100px 0;
+      overflow: hidden;
+    }
+    .trust__bg {
+      position: absolute; inset: 0;
+      background: url('img_solution_route.jpg') center/cover no-repeat;
+      filter: brightness(.5) saturate(.6);
+      z-index: 0;
+    }
+    .trust::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(8,6,2,.55), rgba(12,9,4,.65));
+      z-index: 1;
+    }
+    .trust .inner { position: relative; z-index: 2; }
+    .trust .label { color: #7a6840; }
+    .trust .divider { background: #7a6840; }
+    .trust h2 {
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: 300;
+      color: #f0ebe0;
+      line-height: 1.9;
+      margin-bottom: 48px;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(184,150,90,.3);
+      border: 1px solid rgba(184,150,90,.3);
+    }
+    .trust-item {
+      text-align: center;
+      padding: 36px 16px;
+      background: rgba(0,0,0,.35);
+    }
+    .trust-item__num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: #e8c87a;
+      line-height: 1.1;
+      letter-spacing: 2px;
+    }
+    .trust-item__label {
+      font-family: sans-serif;
+      font-size: 10px;
+      letter-spacing: 2px;
+      color: #a09070;
+      margin-top: 10px;
+    }
+    .trust-note {
+      margin-top: 32px;
+      font-family: sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: #a09070;
+      text-align: center;
+    }
+
+    /* ════════════════════════════
+       MID CTA — 画像背景
+    ════════════════════════════ */
+    .mid-cta {
+      position: relative;
+      padding: 100px 0;
+      text-align: center;
+      color: #f0ebe0;
+      overflow: hidden;
+    }
+    .mid-cta__bg {
+      position: absolute; inset: 0;
+      background: url('img_room_night.jpg') center/cover no-repeat;
+      filter: brightness(.45) saturate(.5);
+      z-index: 0;
+    }
+    .mid-cta::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(10,8,4,.68);
+      z-index: 1;
+    }
+    .mid-cta .inner { position: relative; z-index: 2; }
+    .mid-cta .label { color: #7a6840; }
+    .mid-cta .divider { background: #7a6840; margin: 14px auto 28px; }
+    .mid-cta h2 {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 12px;
+      color: #e8e0d0;
+    }
+    .mid-cta p {
+      font-family: sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: rgba(200,185,150,.6);
+      margin-bottom: 36px;
+    }
+
+    /* ════════════════════════════
+       PROFILE
+    ════════════════════════════ */
+    .profile { background: var(--ivory); padding: 100px 0; }
+    .profile h2 {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 0;
+    }
+    .profile__img-wrap {
+      position: relative;
+      margin: 40px 0;
+    }
+    .profile__img {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      border-radius: 2px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.12);
+    }
+    .profile__text p {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 2.2;
+      margin-bottom: 20px;
+    }
+    .profile__text p:last-child { margin-bottom: 0; }
+    .profile__sign {
+      margin-top: 32px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--gold);
+      letter-spacing: 1px;
+    }
+
+    /* ════════════════════════════
+       PRICE
+    ════════════════════════════ */
+    .price { background: var(--ivory2); padding: 100px 0; }
+    .price h2 {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 48px;
+    }
+    .price-cards { display: flex; flex-direction: column; gap: 16px; }
+    .price-card {
+      background: var(--ivory);
+      padding: 36px 32px;
+      border: 1px solid var(--border);
+    }
+    .price-card.featured {
+      background: var(--dark);
+      border-color: rgba(184,150,90,.3);
+      color: #e8e0d0;
+    }
+    .price-card.featured .price-card__label { color: var(--gold-lt); }
+    .price-card.featured .price-card__name { color: #f0ebe0; }
+    .price-card.featured .price-card__amount { color: var(--gold-lt); }
+    .price-card.featured .price-card__note { color: #6a6050; }
+    .price-card__label {
+      font-family: sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .price-card__name {
+      font-size: 18px;
+      font-weight: 300;
+      margin-bottom: 16px;
+    }
+    .price-card__amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 44px;
+      font-weight: 300;
+      color: var(--gold);
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+    .price-card__original {
+      font-family: sans-serif;
+      font-size: 12px;
+      color: #aaa;
+      text-decoration: line-through;
+      margin-top: 6px;
+    }
+    .price-card__note {
+      font-family: sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 16px;
+      line-height: 2;
+    }
+    .price-footer {
+      margin-top: 24px;
+      font-family: sans-serif;
+      font-size: 11px;
+      color: #b0a898;
+      letter-spacing: 1px;
+    }
+
+    /* ════════════════════════════
+       FLOW — 画像背景
+    ════════════════════════════ */
+    .flow {
+      position: relative;
+      padding: 100px 0;
+      overflow: hidden;
+    }
+    .flow__bg {
+      position: absolute; inset: 0;
+      background: url('img_night_entrance.jpg') center/cover no-repeat;
+      filter: brightness(.45) saturate(.5);
+      z-index: 0;
+    }
+    .flow::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(6,5,2,.68), rgba(10,8,4,.8));
+      z-index: 1;
+    }
+    .flow .inner { position: relative; z-index: 2; }
+    .flow .label { color: #7a6840; }
+    .flow .divider { background: #7a6840; }
+    .flow h2 {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 300;
+      color: #d8d0c0;
+      line-height: 1.9;
+      margin-bottom: 48px;
+    }
+    .flow-steps { display: flex; flex-direction: column; }
+    .flow-step {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 20px;
+      padding: 28px 0;
+      border-top: 1px solid rgba(184,150,90,.15);
+    }
+    .flow-step:last-child { border-bottom: 1px solid rgba(184,150,90,.15); }
+    .flow-step__num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 300;
+      color: rgba(184,150,90,.4);
+      line-height: 1.2;
+      padding-top: 2px;
+    }
+    .flow-step__body h3 {
+      font-size: 16px;
+      font-weight: 400;
+      color: #e8e0d0;
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+    .flow-step__body p {
+      font-family: sans-serif;
+      font-size: 13px;
+      color: #9a8e7a;
+      line-height: 1.9;
+      margin-bottom: 0;
+    }
+
+    /* ════════════════════════════
+       FAQ
+    ════════════════════════════ */
+    .faq { background: var(--ivory); padding: 100px 0; }
+    .faq h2 {
+      font-size: clamp(20px, 3vw, 26px);
+      font-weight: 300;
+      line-height: 1.9;
+      margin-bottom: 48px;
+    }
+    .faq-item { border-top: 1px solid var(--border); padding: 28px 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+    .faq-item__q {
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+      font-size: 15px;
+      font-weight: 300;
+      margin-bottom: 14px;
+      line-height: 1.7;
+    }
+    .faq-item__q::before {
+      content: 'Q';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--gold);
+      flex-shrink: 0;
+      line-height: 1;
+    }
+    .faq-item__a {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 2.1;
+      padding-left: 34px;
+      margin-bottom: 0;
+    }
+
+    /* ════════════════════════════
+       FINAL CTA
+    ════════════════════════════ */
+    .final-cta {
+      position: relative;
+      min-height: 540px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 28px;
+      overflow: hidden;
+      color: #f0ebe0;
+    }
+    .final-cta__bg {
+      position: absolute; inset: 0;
+      background: url('img_hero_kitakaze.jpg') center/cover no-repeat;
+      filter: brightness(.45) saturate(.6);
+      z-index: 0;
+    }
+    .final-cta::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(6,5,2,.6) 0%, rgba(10,8,4,.75) 100%);
+      z-index: 1;
+    }
+    .final-cta .inner { position: relative; z-index: 2; }
+    .final-cta .label { color: #7a6840; }
+    .final-cta .divider { background: #7a6840; margin: 14px auto 28px; }
+    .final-cta__badge {
+      display: inline-block;
+      border: 1px solid rgba(184,150,90,.4);
+      color: var(--gold-lt);
+      font-family: sans-serif;
+      font-size: 10px;
+      letter-spacing: 4px;
+      padding: 5px 20px;
+      margin-bottom: 28px;
+    }
+    .final-cta h2 {
+      font-size: clamp(22px, 3.5vw, 32px);
+      font-weight: 300;
+      letter-spacing: 2px;
+      line-height: 1.8;
+      color: #e8e0d0;
+      margin-bottom: 16px;
+    }
+    .final-cta__sub {
+      font-family: sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: #9a8e7a;
+      line-height: 2.2;
+      margin-bottom: 44px;
+    }
+    .disclaimer {
+      margin-top: 32px;
+      font-family: sans-serif;
+      font-size: 10px;
+      color: #3a3428;
+      line-height: 2.4;
+      letter-spacing: .5px;
+    }
+
+    /* ════════════════════════════
+       FOOTER
+    ════════════════════════════ */
+    footer {
+      background: #0a0804;
+      color: #3a3428;
+      text-align: center;
+      padding: 48px 28px;
+      font-family: sans-serif;
+      font-size: 11px;
+      letter-spacing: 2px;
+      line-height: 2.4;
+    }
+    footer .footer-logo {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: #6a6050;
+      letter-spacing: 4px;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__badge">HARIDOKORO KITAKAZE &nbsp;·&nbsp; IIDABASHI</div>
+  <h1 class="hero__h1">他で治らなかった、<br>その体へ。</h1>
+  <p class="hero__sub">
+    鍼灸師歴10年・施術実績1,000人以上。<br>
+    飯田橋の完全個室で、月10名だけ。
+  </p>
+  <a href="#contact" class="btn btn-outline">LINE で初回相談する — 初回 ¥10,000</a>
+  <p class="btn-note">相談だけでも大丈夫です　·　予約後キャンセル可</p>
+  <div class="hero__scroll">SCROLL</div>
+</section>
+
+<!-- INTRO STRIP -->
+<div class="intro-strip">
+  鍼灸師歴10年 &nbsp;·&nbsp; 施術実績1,000人以上 &nbsp;·&nbsp; 月10名限定 &nbsp;·&nbsp; 夜21〜23時 &nbsp;·&nbsp; 飯田橋駅B3出口 徒歩2分
+</div>
+
+<!-- VOICES（Pattern B: 証拠ファースト — FV直下） -->
+<section class="voices">
+  <div class="voices__bg"></div>
+  <div class="inner">
+    <p class="label">Voice</p>
+    <div class="divider"></div>
+    <h2>「ここで、初めて変わった」</h2>
+
+    <div class="voice-card">
+      <p class="voice-card__tag">BEFORE → AFTER · 30代 会社員 女性</p>
+      <p class="voice-card__body">毎週マッサージに行っても、3日で首肩が戻っていました。3回通ったあたりから、朝起きたときの重さがなくなってきました。</p>
+      <img src="img_voice1_kitakaze.jpg" alt="お客様の変化" class="voice-card__img" />
+      <p class="voice-card__quote">夜に来られることと、先生の説明が理論的で「なぜ治らなかったか」が初めてわかった気がしました。</p>
+    </div>
+
+    <div class="voice-card">
+      <p class="voice-card__tag">BEFORE → AFTER · 40代 管理職 男性</p>
+      <p class="voice-card__body">病院で「ストレスですね」と言われ続けて半年。自律神経が少しずつ整ってきた感覚があります。眠れるようになりました。</p>
+      <p class="voice-card__quote">月10名という少なさに、逆に安心しました。個室なので緊張せずに話せました。</p>
+    </div>
+
+    <div class="voice-card">
+      <p class="voice-card__tag">BEFORE → AFTER · 30代 フリーランス 女性</p>
+      <p class="voice-card__body">以前の整体で強く押されてから、体を触られることが怖くなっていました。鍼は怖くなかったです。気づいたら体が変わり始めていました。</p>
+      <p class="voice-card__quote">LINEで相談したとき、不安を全部聞いてもらえたので予約できました。</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="problem">
+  <div class="problem__bg"></div>
+  <div class="inner">
+    <p class="label">Problem</p>
+    <div class="divider"></div>
+    <h2>こんな経験、ありませんか？</h2>
+    <ul class="checklist">
+      <li>マッサージに行くと楽になるが、3日で戻る</li>
+      <li>整体・カイロに通ったが、根本的には変わらない</li>
+      <li>病院で「異常なし」「ストレスですね」と言われた</li>
+      <li>昼間は仕事で治療院に行けない</li>
+      <li>「もうこういう体質なんだ」と半ば諦めている</li>
+    </ul>
+    <p class="problem-note">ひとつでも当てはまるなら ─ それは体質ではありません。<br>コリの「根っこ」まで届いていないことが、原因かもしれません。</p>
+  </div>
+</section>
+
+<!-- AGGRAVATION -->
+<section class="aggravation">
+  <div class="inner">
+    <p class="label">Warning</p>
+    <div class="divider"></div>
+    <h2>「また整体で」を繰り返すほど、<br>体は変わりにくくなります。</h2>
+    <p>慢性的な肩こり・腰痛・頭痛を誤魔化し続けると、症状は蓄積し、睡眠の質が落ち、集中力も続かなくなります。</p>
+    <p>「様子を見る」時間が長くなるほど、改善には時間がかかります。</p>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution">
+  <div class="inner">
+    <p class="label">Solution</p>
+    <div class="divider"></div>
+    <h2>ルート治療が<br>「他で改善しなかった症状」に届く理由</h2>
+    <div class="sol-cards">
+      <div class="sol-card">
+        <div class="sol-card__num">01</div>
+        <div class="sol-card__body">
+          <h3>コリを「立体」で捉える</h3>
+          <p>一般的なマッサージは表面の一点をほぐします。しかしコリは上下・左右・奥行きを持つ立体構造です。ルート治療は、その3D的な形状を指先で読み取り、根（ルート）に沿って鍼を進めていきます。</p>
+          <img src="img_solution_route.jpg" alt="ルート治療" class="sol-card__img" />
+        </div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card__num">02</div>
+        <div class="sol-card__body">
+          <h3>蓄積型の効果</h3>
+          <p>1回で「劇的に変わった」は目指しません。回数を重ねるごとに体が変わっていく実感があります。これは表面ではなく、根本にアプローチしているからです。</p>
+        </div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-card__num">03</div>
+        <div class="sol-card__body">
+          <h3>月10名限定・完全個室</h3>
+          <p>一人ひとりの体を深く読むためには、数を制限する必要があります。月10名という制限は、あなたへの集中の証です。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="trust">
+  <div class="trust__bg"></div>
+  <div class="inner">
+    <p class="label">Trust</p>
+    <div class="divider"></div>
+    <h2>10年、1,000人以上の体と<br>向き合ってきた実績</h2>
+    <div class="trust-grid">
+      <div class="trust-item">
+        <p class="trust-item__num">10</p>
+        <p class="trust-item__label">YEARS · 鍼灸師歴</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-item__num">1,000<span style="font-size:22px;">+</span></p>
+        <p class="trust-item__label">CASES · 施術実績</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-item__num">10</p>
+        <p class="trust-item__label">CLIENTS / MONTH · 月限定</p>
+      </div>
+      <div class="trust-item">
+        <p class="trust-item__num">21<span style="font-size:22px;">〜</span>23</p>
+        <p class="trust-item__label">HOURS · 夜間限定営業</p>
+      </div>
+    </div>
+    <p class="trust-note">鍼灸師国家資格 ／ ルート治療認定 ／ 飯田橋駅B3出口 徒歩2分</p>
+  </div>
+</section>
+
+<!-- MID CTA -->
+<section class="mid-cta">
+  <div class="mid-cta__bg"></div>
+  <div class="inner">
+    <p class="label">Contact</p>
+    <div class="divider divider-center"></div>
+    <h2>まずは相談だけでも、構いません。</h2>
+    <p>治療の内容・症状・料金、なんでもLINEでどうぞ。</p>
+    <a href="#contact" class="btn btn-outline">LINE で相談する — 初回 ¥10,000</a>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section class="profile">
+  <div class="inner">
+    <p class="label">Profile</p>
+    <div class="divider"></div>
+    <h2>「どこに行っても良くならない」を<br>聞き続けた10年。</h2>
+    <div class="profile__img-wrap">
+      <img src="img_profile_kitakaze.jpg" alt="院長" class="profile__img" />
+    </div>
+    <div class="profile__text">
+      <p>整体、カイロ、一般の鍼灸院。どこかで必ず「また戻ってしまう」が起きている。10年間、1,000人以上の体を診てきて気づいたことがあります。多くの場合、コリの「奥」まで届いていないのです。</p>
+      <p>だからルート治療を選びました。表面ではなく、コリの根っこへ。夜21時から開けているのも、昼に来られない働く人たちのためです。</p>
+      <p>体のことで諦めかけているなら、一度だけ話しかけてください。</p>
+      <p class="profile__sign">鍼処北風 院長</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section class="price">
+  <div class="inner">
+    <p class="label">Price</p>
+    <div class="divider"></div>
+    <h2>料金・コース</h2>
+    <div class="price-cards">
+      <div class="price-card featured">
+        <p class="price-card__label">FIRST VISIT · 初めての方限定</p>
+        <p class="price-card__name">初回モニター</p>
+        <p class="price-card__amount">¥10,000</p>
+        <p class="price-card__original">通常 ¥12,000〜</p>
+        <p class="price-card__note">初めての方が安心して試せる特別価格<br>所要時間 60〜90分</p>
+      </div>
+      <div class="price-card">
+        <p class="price-card__label">ROUTE TREATMENT · 2回目以降</p>
+        <p class="price-card__name">ルート治療</p>
+        <p class="price-card__amount">¥12,000<span style="font-size:20px;">〜</span></p>
+        <p class="price-card__note">所要時間 60〜90分</p>
+      </div>
+      <div class="price-card">
+        <p class="price-card__label">BEAUTY · 美容鍼</p>
+        <p class="price-card__name">ルート鬼美容鍼</p>
+        <p class="price-card__amount">¥12,000</p>
+        <p class="price-card__note">所要時間 60分</p>
+      </div>
+    </div>
+    <p class="price-footer">すべて完全予約制 · 完全個室 · 保険外診療（自費）</p>
+  </div>
+</section>
+
+<!-- FLOW -->
+<section class="flow">
+  <div class="flow__bg"></div>
+  <div class="inner">
+    <p class="label">How to Start</p>
+    <div class="divider"></div>
+    <h2>ご利用の流れ</h2>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-step__num">01</div>
+        <div class="flow-step__body">
+          <h3>LINE で「相談」と送る</h3>
+          <p>料金・症状・不安、なんでも聞いてください。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step__num">02</div>
+        <div class="flow-step__body">
+          <h3>初回予約を確定</h3>
+          <p>夜21〜23時の中でご都合の良い日時を選びます。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step__num">03</div>
+        <div class="flow-step__body">
+          <h3>飯田橋の完全個室へ</h3>
+          <p>B3出口から徒歩2分。夜の静かな個室でお待ちしています。</p>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step__num">04</div>
+        <div class="flow-step__body">
+          <h3>ルート治療スタート</h3>
+          <p>体のコリを3Dで読み取り、根っこへアプローチします。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="inner">
+    <p class="label">FAQ</p>
+    <div class="divider"></div>
+    <h2>よくある質問</h2>
+    <div class="faq-item">
+      <p class="faq-item__q">鍼は痛いですか？</p>
+      <p class="faq-item__a">「思っていたより痛くなかった」とおっしゃる方がほとんどです。使用する鍼は非常に細く、刺激も最小限に調整しています。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-item__q">何回通えば変わりますか？</p>
+      <p class="faq-item__a">3〜5回を一つの目安にしていただいています。ルート治療は蓄積型のため、回数を重ねるごとに体の変化を実感される方が多いです。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-item__q">症状がひどくても来られますか？</p>
+      <p class="faq-item__a">はい。むしろ「どこに行っても良くならなかった」方が対象です。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-item__q">保険は使えますか？</p>
+      <p class="faq-item__a">申し訳ありませんが、自費診療のみとなります。初回モニターは¥10,000でご案内しています。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-item__q">夜21時以外の時間はありますか？</p>
+      <p class="faq-item__a">現在は夜21:00〜23:00のみの対応です。完全個室・完全予約制のため、この時間帯に集中しています。</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta" id="contact">
+  <div class="final-cta__bg"></div>
+  <div class="inner">
+    <p class="label">Contact</p>
+    <div class="divider divider-center"></div>
+    <p class="final-cta__badge">今月 残り数名</p>
+    <h2>「また今度」を繰り返してきた体に、<br>今夜、向き合いませんか。</h2>
+    <p class="final-cta__sub">
+      初回の方は、モニター価格 ¥10,000 でご案内します。<br>
+      相談だけでも、大丈夫です。
+    </p>
+    <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="btn btn-outline">LINE で今月の枠を確認する</a>
+    <p class="btn-note">相談無料 · 予約後キャンセル可</p>
+    <p class="disclaimer">
+      ＊「必ず治る」を約束するものではありません。体質・症状により個人差があります。<br>
+      ＊「治る」「治します」等の表現は使用していません（薬機法・景表法準拠）
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">鍼処北風</p>
+  <p>東京都千代田区 飯田橋 &nbsp;·&nbsp; 夜21:00〜23:00</p>
+  <p>完全個室 · 完全予約制 · 飯田橋駅B3出口 徒歩2分</p>
+  <p style="margin-top:20px;">© 2026 Haridokoro Kitakaze</p>
+</footer>
+
+</body>
+</html>
