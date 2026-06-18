@@ -61,21 +61,24 @@
 
     /* ===== CTA BUTTON ===== */
     .cta-btn {
-      display: inline-block;
+      display: block;
       background: #c8a96a;
       color: #fff;
-      font-size: 16px;
+      font-size: 15px;
       font-family: sans-serif;
       font-weight: bold;
-      letter-spacing: 1px;
-      padding: 18px 36px;
+      letter-spacing: 0.5px;
+      padding: 18px 24px;
       border-radius: 50px;
       margin: 8px auto;
       text-align: center;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
       transition: opacity 0.2s;
-      max-width: 340px;
-      width: 90%;
+      max-width: 360px;
+      width: 92%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .cta-btn:hover { opacity: 0.85; }
     .cta-note {
@@ -163,32 +166,60 @@
     .cta-section h2 { margin-bottom: 12px; }
 
     /* ===== TRUST ===== */
-    .trust { background: #faf9f7; }
+    .trust {
+      position: relative;
+      background: #1e1e1e;
+      color: #e8e3da;
+      overflow: hidden;
+    }
+    .trust-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('img_solution_route.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.18);
+      z-index: 0;
+    }
+    .trust .inner { position: relative; z-index: 1; }
+    .trust .sec-label { color: #c8b98a; }
+    .trust h2 { color: #f0ebe0; }
     .trust-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 28px 0;
+      gap: 1px;
+      margin: 32px 0;
+      background: rgba(200,169,106,0.2);
+      border: 1px solid rgba(200,169,106,0.2);
+      border-radius: 4px;
+      overflow: hidden;
     }
     .trust-item {
       text-align: center;
-      padding: 20px 12px;
-      background: #fff;
-      border: 1px solid #e0dbd2;
-      border-radius: 4px;
+      padding: 28px 16px;
+      background: rgba(255,255,255,0.04);
     }
     .trust-item .num {
-      font-size: 28px;
+      font-size: 36px;
       font-family: sans-serif;
       color: #c8a96a;
       font-weight: bold;
       letter-spacing: 1px;
+      line-height: 1.2;
     }
     .trust-item .label {
-      font-size: 12px;
+      font-size: 11px;
       font-family: sans-serif;
-      color: #777;
+      color: #a09080;
       letter-spacing: 2px;
+      margin-top: 8px;
+    }
+    .trust-note {
+      font-family: sans-serif;
+      font-size: 13px;
+      color: #7a6a5a;
+      border-top: 1px solid rgba(200,169,106,0.2);
+      padding-top: 20px;
       margin-top: 4px;
     }
 
@@ -380,34 +411,35 @@
   <div class="inner">
     <h2>まずは相談だけでも構いません。</h2>
     <p style="margin-bottom:28px;font-family:sans-serif;font-size:16px;">治療の内容・症状・料金について、LINEでお気軽にどうぞ。</p>
-    <a href="#line" class="cta-btn">LINEで相談する（初回モニター¥10,000）</a>
+    <a href="#line" class="cta-btn">LINEで相談する（初回¥10,000）</a>
   </div>
 </section>
 
 <!-- ===== TRUST ===== -->
 <section class="trust">
+  <div class="trust-bg"></div>
   <div class="inner">
     <p class="sec-label">Trust</p>
-    <h2>実績・信頼</h2>
+    <h2>10年、1,000人以上の体と向き合ってきた実績</h2>
     <div class="trust-grid">
       <div class="trust-item">
         <p class="num">10年</p>
         <p class="label">鍼灸師歴</p>
       </div>
       <div class="trust-item">
-        <p class="num">1,000+</p>
+        <p class="num">1,000<span style="font-size:20px;">人以上</span></p>
         <p class="label">施術実績</p>
       </div>
       <div class="trust-item">
         <p class="num">月10名</p>
-        <p class="label">受入上限</p>
+        <p class="label">受入上限（完全予約制）</p>
       </div>
       <div class="trust-item">
-        <p class="num">21-23時</p>
-        <p class="label">営業時間</p>
+        <p class="num">21〜23時</p>
+        <p class="label">夜のみ営業</p>
       </div>
     </div>
-    <p style="font-family:sans-serif;font-size:14px;color:#777;">鍼灸師国家資格 / ルート治療認定 / 飯田橋駅B3出口 徒歩2分</p>
+    <p class="trust-note">鍼灸師国家資格 ／ ルート治療認定 ／ 飯田橋駅B3出口 徒歩2分</p>
   </div>
 </section>
 
