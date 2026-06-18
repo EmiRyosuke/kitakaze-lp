@@ -5,19 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>鍼処北風｜飯田橋 夜の鍼治療院（ルート治療）</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400&display=swap');
+
+    :root {
+      --cream:   #faf8f4;
+      --cream2:  #f4f0e8;
+      --gold:    #b89a5a;
+      --gold-lt: #d4b87a;
+      --dark:    #1c1c1c;
+      --text:    #3a3530;
+      --muted:   #7a7268;
+      --border:  #e4ddd2;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif; background: #faf9f7; color: #2c2c2c; line-height: 1.9; font-size: 18px; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Serif JP', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 2;
+      font-size: 17px;
+      font-weight: 300;
+    }
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; height: auto; display: block; }
+    img { max-width: 100%; height: auto; display: block; border-radius: 8px; }
 
     /* ===== HERO ===== */
     .hero {
       position: relative;
-      color: #f0ebe0;
+      color: #f5f0e8;
       text-align: center;
-      padding: 90px 24px 72px;
+      padding: 100px 28px 80px;
       overflow: hidden;
-      min-height: 520px;
+      min-height: 580px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -29,147 +50,195 @@
       background-image: url('img_hero_kitakaze.jpg');
       background-size: cover;
       background-position: center;
-      filter: brightness(0.38);
+      filter: brightness(0.32);
       z-index: 0;
     }
-    .hero > *:not(.hero-bg) { position: relative; z-index: 1; }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
+      z-index: 1;
+    }
+    .hero > *:not(.hero-bg) { position: relative; z-index: 2; }
     .hero .badge {
       display: inline-block;
-      border: 1px solid #c8b98a;
-      color: #c8b98a;
-      font-size: 11px;
-      letter-spacing: 3px;
-      padding: 5px 16px;
-      margin-bottom: 28px;
+      border: 1px solid rgba(200,185,138,0.6);
+      color: #d4b87a;
+      font-size: 10px;
+      letter-spacing: 4px;
+      padding: 6px 20px;
+      margin-bottom: 32px;
       font-family: sans-serif;
     }
     .hero h1 {
-      font-size: clamp(26px, 5.5vw, 44px);
-      font-weight: 400;
-      letter-spacing: 3px;
-      line-height: 1.6;
-      margin-bottom: 20px;
+      font-size: clamp(28px, 6vw, 48px);
+      font-weight: 300;
+      letter-spacing: 4px;
+      line-height: 1.65;
+      margin-bottom: 24px;
+      text-shadow: 0 2px 16px rgba(0,0,0,0.3);
     }
     .hero .sub {
-      font-size: 15px;
-      color: #c8b98a;
+      font-size: 14px;
+      color: #d4b87a;
       letter-spacing: 2px;
-      line-height: 2;
-      margin-bottom: 36px;
+      line-height: 2.2;
+      margin-bottom: 40px;
       font-family: sans-serif;
+      font-weight: 300;
     }
 
     /* ===== CTA BUTTON ===== */
     .cta-btn {
       display: block;
-      background: #c8a96a;
+      background: linear-gradient(135deg, #c8a96a, #a8864a);
       color: #fff;
-      font-size: 15px;
+      font-size: 14px;
       font-family: sans-serif;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      padding: 18px 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      padding: 18px 32px;
       border-radius: 50px;
-      margin: 8px auto;
+      margin: 12px auto;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      transition: opacity 0.2s;
+      box-shadow: 0 6px 28px rgba(168,134,74,0.35);
+      transition: all 0.25s;
       max-width: 360px;
       width: 92%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
-    .cta-btn:hover { opacity: 0.85; }
+    .cta-btn:hover { opacity: 0.88; transform: translateY(-1px); box-shadow: 0 8px 32px rgba(168,134,74,0.45); }
     .cta-note {
-      font-size: 12px;
+      font-size: 11px;
       font-family: sans-serif;
-      color: #aaa;
-      margin-top: 8px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 10px;
+      letter-spacing: 1px;
+    }
+    .cta-note-light {
+      font-size: 11px;
+      font-family: sans-serif;
+      color: var(--muted);
+      margin-top: 10px;
       letter-spacing: 1px;
     }
 
     /* ===== SECTION BASE ===== */
-    section { padding: 64px 24px; }
-    .inner { max-width: 680px; margin: 0 auto; }
+    section { padding: 80px 28px; }
+    .inner { max-width: 660px; margin: 0 auto; }
     .sec-label {
       font-family: sans-serif;
       font-size: 10px;
-      letter-spacing: 4px;
-      color: #c8a96a;
-      margin-bottom: 12px;
+      letter-spacing: 5px;
+      color: var(--gold);
+      margin-bottom: 8px;
       text-transform: uppercase;
     }
+    .sec-divider {
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      margin: 12px 0 24px;
+    }
     h2 {
-      font-size: clamp(22px, 4vw, 30px);
-      font-weight: 400;
+      font-size: clamp(20px, 3.5vw, 28px);
+      font-weight: 300;
       letter-spacing: 0;
-      line-height: 1.7;
-      margin-bottom: 28px;
-      word-break: auto-phrase;
+      line-height: 1.8;
+      margin-bottom: 32px;
+      color: var(--text);
     }
     h3 {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 400;
       letter-spacing: 0;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
+      color: var(--text);
     }
-    p { margin-bottom: 16px; }
+    p { margin-bottom: 18px; color: var(--text); }
 
     /* ===== PROBLEM ===== */
-    .problem { background: #f5f2ed; }
-    .checklist { list-style: none; margin: 24px 0; }
+    .problem { background: var(--cream2); }
+    .problem-img { margin: 28px 0; border-radius: 12px; }
+    .checklist { list-style: none; margin: 8px 0 28px; }
     .checklist li {
-      padding: 12px 0 12px 36px;
+      padding: 14px 0 14px 36px;
       position: relative;
-      border-bottom: 1px solid #e0dbd2;
-      font-size: 17px;
+      border-bottom: 1px solid var(--border);
+      font-size: 16px;
+      line-height: 1.7;
     }
+    .checklist li:first-child { border-top: 1px solid var(--border); }
     .checklist li::before {
       content: '✓';
       position: absolute;
       left: 0;
-      color: #c8a96a;
+      color: var(--gold);
       font-family: sans-serif;
     }
     .problem-note {
-      margin-top: 24px;
-      font-size: 16px;
-      color: #555;
-      font-style: italic;
+      background: #fff;
+      border-left: 3px solid var(--gold-lt);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.9;
     }
 
     /* ===== AGGRAVATION ===== */
-    .aggravation { background: #2c2c2c; color: #e8e3da; }
-    .aggravation h2 { color: #c8b98a; }
-    .aggravation p { color: #ccc; }
+    .aggravation {
+      position: relative;
+      background: var(--dark);
+      color: #e8e3da;
+      overflow: hidden;
+    }
+    .aggravation-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('img_problem_kitakaze.jpg');
+      background-size: cover;
+      background-position: center top;
+      filter: brightness(0.12) saturate(0.5);
+      z-index: 0;
+    }
+    .aggravation .inner { position: relative; z-index: 1; }
+    .aggravation h2 { color: #e8dfc8; font-size: clamp(20px, 3.5vw, 26px); }
+    .aggravation p { color: #b0a898; }
+    .aggravation .sec-label { color: #a09070; }
+    .aggravation .sec-divider { background: #a09070; }
 
     /* ===== SOLUTION ===== */
+    .solution { background: var(--cream); }
     .solution-card {
       background: #fff;
-      border: 1px solid #e0dbd2;
-      border-radius: 4px;
-      padding: 28px 24px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 28px;
       margin-bottom: 20px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.04);
     }
     .solution-card .num {
       font-family: sans-serif;
-      font-size: 11px;
-      letter-spacing: 3px;
-      color: #c8a96a;
-      margin-bottom: 8px;
+      font-size: 10px;
+      letter-spacing: 4px;
+      color: var(--gold);
+      margin-bottom: 10px;
     }
-    .solution-img { margin: 20px 0; border-radius: 4px; }
+    .solution-img { margin: 20px 0; border-radius: 10px; }
 
     /* ===== CTA SECTION ===== */
-    .cta-section { background: #f5f2ed; text-align: center; }
-    .cta-section h2 { margin-bottom: 12px; }
+    .cta-section {
+      background: #fff;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .cta-section h2 { margin-bottom: 8px; }
 
     /* ===== TRUST ===== */
     .trust {
       position: relative;
-      background: #1e1e1e;
-      color: #e8e3da;
       overflow: hidden;
     }
     .trust-bg {
@@ -178,162 +247,250 @@
       background-image: url('img_solution_route.jpg');
       background-size: cover;
       background-position: center;
-      filter: brightness(0.18);
+      filter: brightness(0.15) saturate(0.6);
       z-index: 0;
     }
-    .trust .inner { position: relative; z-index: 1; }
-    .trust .sec-label { color: #c8b98a; }
-    .trust h2 { color: #f0ebe0; }
+    .trust::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(28,20,10,0.85) 0%, rgba(10,8,4,0.7) 100%);
+      z-index: 1;
+    }
+    .trust .inner { position: relative; z-index: 2; }
+    .trust .sec-label { color: #a09070; }
+    .trust .sec-divider { background: #a09070; }
+    .trust h2 { color: #f0ebe0; font-size: clamp(18px, 3vw, 24px); }
     .trust-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1px;
+      gap: 12px;
       margin: 32px 0;
-      background: rgba(200,169,106,0.2);
-      border: 1px solid rgba(200,169,106,0.2);
-      border-radius: 4px;
-      overflow: hidden;
     }
     .trust-item {
       text-align: center;
-      padding: 28px 16px;
-      background: rgba(255,255,255,0.04);
+      padding: 28px 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(200,169,106,0.2);
+      border-radius: 10px;
     }
     .trust-item .num {
-      font-size: 36px;
+      font-size: 32px;
       font-family: sans-serif;
-      color: #c8a96a;
-      font-weight: bold;
-      letter-spacing: 1px;
+      color: var(--gold-lt);
+      font-weight: 600;
       line-height: 1.2;
     }
     .trust-item .label {
       font-size: 11px;
       font-family: sans-serif;
-      color: #a09080;
-      letter-spacing: 2px;
+      color: #8a7a68;
+      letter-spacing: 1px;
       margin-top: 8px;
     }
     .trust-note {
       font-family: sans-serif;
-      font-size: 13px;
-      color: #7a6a5a;
-      border-top: 1px solid rgba(200,169,106,0.2);
+      font-size: 12px;
+      color: #6a5a4a;
+      border-top: 1px solid rgba(200,169,106,0.15);
       padding-top: 20px;
-      margin-top: 4px;
     }
 
     /* ===== PROFILE ===== */
-    .profile { background: #f5f2ed; }
-    .profile-img { border-radius: 4px; margin: 24px auto; max-width: 420px; width: 100%; display: block; }
+    .profile { background: var(--cream2); }
+    .profile-img {
+      border-radius: 12px;
+      margin: 28px auto;
+      max-width: 440px;
+      width: 100%;
+      display: block;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
 
     /* ===== PRICE ===== */
-    .price { background: #fff; }
+    .price { background: var(--cream); }
     .price-card {
-      border: 1px solid #e0dbd2;
-      border-radius: 4px;
-      padding: 28px 24px;
-      margin-bottom: 20px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 28px;
+      margin-bottom: 16px;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
     }
-    .price-card.featured { border-color: #c8a96a; background: #fdf9f3; }
+    .price-card.featured {
+      border-color: var(--gold-lt);
+      background: linear-gradient(135deg, #fffdf7 0%, #fdf5e4 100%);
+      box-shadow: 0 4px 24px rgba(184,154,90,0.15);
+    }
     .price-tag {
-      font-size: 28px;
+      font-size: 30px;
       font-family: sans-serif;
-      font-weight: bold;
-      color: #c8a96a;
-      margin: 8px 0;
+      font-weight: 600;
+      color: var(--gold);
+      margin: 10px 0;
+      letter-spacing: 1px;
     }
     .price-original {
-      font-size: 14px;
-      color: #999;
+      font-size: 13px;
+      color: #aaa;
       font-family: sans-serif;
       text-decoration: line-through;
     }
-    .price-note { font-size: 13px; color: #777; font-family: sans-serif; margin-top: 8px; }
+    .price-note { font-size: 13px; color: var(--muted); font-family: sans-serif; margin-top: 8px; line-height: 1.7; }
 
     /* ===== VOICES ===== */
-    .voices { background: #f5f2ed; }
+    .voices { background: var(--cream2); }
     .voice-card {
       background: #fff;
-      border-radius: 4px;
-      padding: 28px 24px;
+      border-radius: 12px;
+      padding: 32px 28px;
       margin-bottom: 20px;
-      border-left: 3px solid #c8a96a;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.05);
     }
     .voice-tag {
       font-family: sans-serif;
-      font-size: 11px;
-      letter-spacing: 2px;
-      color: #c8a96a;
-      margin-bottom: 8px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .voice-body { font-size: 16px; line-height: 1.9; color: var(--text); }
+    .voice-quote {
+      font-size: 15px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      margin-top: 16px;
+      font-style: italic;
+      line-height: 1.9;
     }
     .voice-attr {
-      font-size: 13px;
+      font-size: 12px;
       font-family: sans-serif;
-      color: #999;
+      color: #bbb;
       margin-top: 12px;
     }
-    .voice-img { margin: 16px 0; border-radius: 4px; }
+    .voice-img { margin: 20px 0; border-radius: 10px; }
 
     /* ===== FLOW ===== */
     .flow { background: #fff; }
-    .flow-steps { margin: 28px 0; }
+    .flow-steps { margin: 32px 0; }
     .flow-step {
       display: flex;
       align-items: flex-start;
-      gap: 20px;
-      padding: 20px 0;
-      border-bottom: 1px solid #e0dbd2;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
     }
     .flow-step:last-child { border-bottom: none; }
     .step-num {
       font-family: sans-serif;
-      font-size: 28px;
-      color: #c8a96a;
-      font-weight: bold;
+      font-size: 11px;
+      letter-spacing: 2px;
+      color: var(--gold);
+      font-weight: 600;
       flex-shrink: 0;
-      width: 40px;
+      width: 36px;
+      padding-top: 4px;
     }
-    .step-body h3 { margin-bottom: 6px; }
+    .step-body h3 { margin-bottom: 4px; font-size: 17px; }
+    .step-body p { font-size: 15px; color: var(--muted); margin-bottom: 0; }
 
     /* ===== FAQ ===== */
-    .faq { background: #f5f2ed; }
-    .faq-item { padding: 20px 0; border-bottom: 1px solid #e0dbd2; }
+    .faq { background: var(--cream2); }
+    .faq-item {
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+    }
     .faq-item:last-child { border-bottom: none; }
-    .faq-q { font-weight: bold; margin-bottom: 10px; }
-    .faq-q::before { content: 'Q. '; color: #c8a96a; font-family: sans-serif; }
+    .faq-q {
+      font-weight: 400;
+      margin-bottom: 10px;
+      font-size: 16px;
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+    }
+    .faq-q::before {
+      content: 'Q';
+      color: var(--gold);
+      font-family: sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+    .faq-a {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.9;
+      padding-left: 26px;
+      margin-bottom: 0;
+    }
 
     /* ===== FINAL CTA ===== */
-    .final-cta { background: #2c2c2c; color: #e8e3da; text-align: center; }
-    .final-cta h2 { color: #c8b98a; }
+    .final-cta {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+    .final-cta-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('img_hero_kitakaze.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.25) saturate(0.5);
+      z-index: 0;
+    }
+    .final-cta::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(10,8,4,0.7), rgba(10,8,4,0.85));
+      z-index: 1;
+    }
+    .final-cta .inner { position: relative; z-index: 2; }
+    .final-cta h2 { color: #f0ebe0; font-size: clamp(20px, 3.5vw, 28px); }
+    .final-cta .sec-label { color: #a09070; }
+    .final-cta .sec-divider { background: #a09070; }
     .final-cta .limit-badge {
       display: inline-block;
-      background: #c8a96a;
+      background: var(--gold);
       color: #fff;
       font-family: sans-serif;
-      font-size: 12px;
-      letter-spacing: 2px;
-      padding: 4px 16px;
+      font-size: 11px;
+      letter-spacing: 3px;
+      padding: 5px 20px;
       border-radius: 20px;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
-    .disclaimer { font-size: 12px; font-family: sans-serif; color: #777; margin-top: 20px; line-height: 1.7; }
+    .disclaimer {
+      font-size: 11px;
+      font-family: sans-serif;
+      color: #5a5048;
+      margin-top: 24px;
+      line-height: 2;
+    }
 
     /* ===== FOOTER ===== */
     footer {
-      background: #1a1a1a;
-      color: #888;
+      background: #111;
+      color: #5a5048;
       text-align: center;
-      padding: 32px 24px;
-      font-size: 13px;
+      padding: 36px 28px;
+      font-size: 12px;
       font-family: sans-serif;
       letter-spacing: 1px;
+      line-height: 2;
     }
 
     /* ===== MOBILE ===== */
     @media (max-width: 480px) {
-      .trust-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-      .cta-btn { font-size: 15px; padding: 16px 28px; }
+      section { padding: 64px 20px; }
+      .trust-grid { gap: 10px; }
+      .trust-item { padding: 22px 10px; }
+      .trust-item .num { font-size: 26px; }
     }
   </style>
 </head>
@@ -356,6 +513,7 @@
 <section class="problem">
   <div class="inner">
     <p class="sec-label">Problem</p>
+    <div class="sec-divider"></div>
     <h2>こんな経験、ありませんか？</h2>
     <img src="img_problem_kitakaze.jpg" alt="疲れた表情のビジネスパーソン" class="solution-img" />
     <ul class="checklist">
@@ -371,8 +529,10 @@
 
 <!-- ===== AGGRAVATION ===== -->
 <section class="aggravation">
+  <div class="aggravation-bg"></div>
   <div class="inner">
-    <p class="sec-label" style="color:#c8b98a;">Warning</p>
+    <p class="sec-label">Warning</p>
+    <div class="sec-divider"></div>
     <h2>「また整体で」を繰り返すほど、体は変わりにくくなります。</h2>
     <p>慢性的な肩こり・腰痛・頭痛を誤魔化し続けると、症状は蓄積し、睡眠の質が落ち、集中力が続かなくなります。</p>
     <p>「様子を見る」時間が長くなるほど、改善には時間がかかります。</p>
@@ -383,6 +543,7 @@
 <section class="solution">
   <div class="inner">
     <p class="sec-label">Solution</p>
+    <div class="sec-divider"></div>
     <h2>ルート治療が「他で改善しなかった症状」に届く理由</h2>
 
     <div class="solution-card">
@@ -420,6 +581,7 @@
   <div class="trust-bg"></div>
   <div class="inner">
     <p class="sec-label">Trust</p>
+    <div class="sec-divider"></div>
     <h2>10年、1,000人以上の体と向き合ってきた実績</h2>
     <div class="trust-grid">
       <div class="trust-item">
@@ -447,6 +609,7 @@
 <section class="profile">
   <div class="inner">
     <p class="sec-label">Profile</p>
+    <div class="sec-divider"></div>
     <h2>「どこに行っても良くならない」を聞き続けた10年。</h2>
     <img src="img_profile_kitakaze.jpg" alt="院長の温かみある写真" class="profile-img" />
     <p>整体、カイロ、一般の鍼灸院。どこかで必ず「また戻ってしまう」が起きている。10年間、1,000人以上の体を診てきて気づいたことがあります。多くの場合、コリの「奥」まで届いていないのです。</p>
@@ -459,6 +622,7 @@
 <section class="price">
   <div class="inner">
     <p class="sec-label">Price</p>
+    <div class="sec-divider"></div>
     <h2>料金・コース</h2>
 
     <div class="price-card featured">
@@ -489,27 +653,28 @@
 <section class="voices">
   <div class="inner">
     <p class="sec-label">Voice</p>
+    <div class="sec-divider"></div>
     <h2>お客様の変化</h2>
 
     <div class="voice-card">
       <p class="voice-tag">BEFORE → AFTER</p>
-      <p>毎週マッサージに行っても、3日で首肩が戻っていました。3回通ったあたりから、朝起きたときの重さがなくなってきました。</p>
+      <p class="voice-body">毎週マッサージに行っても、3日で首肩が戻っていました。3回通ったあたりから、朝起きたときの重さがなくなってきました。</p>
       <img src="img_voice1_kitakaze.jpg" alt="表情が明るくなった女性" class="voice-img" />
-      <p style="font-size:16px;color:#555;">夜に来られることと、先生の説明が理論的で「なぜ治らなかったか」が初めてわかった気がしました。</p>
+      <p class="voice-quote">夜に来られることと、先生の説明が理論的で「なぜ治らなかったか」が初めてわかった気がしました。</p>
       <p class="voice-attr">30代・会社員・女性</p>
     </div>
 
     <div class="voice-card">
       <p class="voice-tag">BEFORE → AFTER</p>
-      <p>病院で「ストレスですね」と言われ続けて半年。薬も効かず途方に暮れていました。自律神経が少しずつ整ってきた感覚があります。眠れるようになりました。</p>
-      <p style="font-size:16px;color:#555;">月10名という少なさに、逆に安心しました。個室なので緊張せずに話せました。</p>
+      <p class="voice-body">病院で「ストレスですね」と言われ続けて半年。薬も効かず途方に暮れていました。自律神経が少しずつ整ってきた感覚があります。眠れるようになりました。</p>
+      <p class="voice-quote">月10名という少なさに、逆に安心しました。個室なので緊張せずに話せました。</p>
       <p class="voice-attr">40代・管理職・男性</p>
     </div>
 
     <div class="voice-card">
       <p class="voice-tag">BEFORE → AFTER</p>
-      <p>以前の整体で強く押されてから、体を触られることが怖くなっていました。鍼は怖くなかったです。気づいたら体が変わり始めていました。</p>
-      <p style="font-size:16px;color:#555;">LINEで相談したとき、不安を全部聞いてもらえたので予約できました。</p>
+      <p class="voice-body">以前の整体で強く押されてから、体を触られることが怖くなっていました。鍼は怖くなかったです。気づいたら体が変わり始めていました。</p>
+      <p class="voice-quote">LINEで相談したとき、不安を全部聞いてもらえたので予約できました。</p>
       <p class="voice-attr">30代・フリーランス・女性</p>
     </div>
   </div>
@@ -519,6 +684,7 @@
 <section class="flow">
   <div class="inner">
     <p class="sec-label">How to Start</p>
+    <div class="sec-divider"></div>
     <h2>ご利用の流れ</h2>
     <div class="flow-steps">
       <div class="flow-step">
@@ -557,37 +723,41 @@
 <section class="faq">
   <div class="inner">
     <p class="sec-label">FAQ</p>
+    <div class="sec-divider"></div>
     <h2>よくある質問</h2>
 
     <div class="faq-item">
       <p class="faq-q">鍼は痛いですか？</p>
-      <p>「思っていたより痛くなかった」とおっしゃる方がほとんどです。使用する鍼は非常に細く、刺激も最小限に調整しています。</p>
+      <p class="faq-a">「思っていたより痛くなかった」とおっしゃる方がほとんどです。使用する鍼は非常に細く、刺激も最小限に調整しています。</p>
     </div>
     <div class="faq-item">
       <p class="faq-q">何回通えば変わりますか？</p>
-      <p>3〜5回を一つの目安にしていただいています。ルート治療は蓄積型のため、回数を重ねるごとに体の変化を実感される方が多いです。</p>
+      <p class="faq-a">3〜5回を一つの目安にしていただいています。ルート治療は蓄積型のため、回数を重ねるごとに体の変化を実感される方が多いです。</p>
     </div>
     <div class="faq-item">
       <p class="faq-q">症状がひどくても来られますか？</p>
-      <p>はい。むしろ「どこに行っても良くならなかった」方が対象です。</p>
+      <p class="faq-a">はい。むしろ「どこに行っても良くならなかった」方が対象です。</p>
     </div>
     <div class="faq-item">
       <p class="faq-q">保険は使えますか？</p>
-      <p>申し訳ありませんが、自費診療のみとなります。初回モニターは¥10,000でご案内しています。</p>
+      <p class="faq-a">申し訳ありませんが、自費診療のみとなります。初回モニターは¥10,000でご案内しています。</p>
     </div>
     <div class="faq-item">
       <p class="faq-q">夜21時以外の時間はありますか？</p>
-      <p>現在は夜21:00〜23:00のみの対応です。完全個室・完全予約制のため、この時間帯に集中しています。</p>
+      <p class="faq-a">現在は夜21:00〜23:00のみの対応です。完全個室・完全予約制のため、この時間帯に集中しています。</p>
     </div>
   </div>
 </section>
 
 <!-- ===== FINAL CTA ===== -->
 <section class="final-cta" id="line">
+  <div class="final-cta-bg"></div>
   <div class="inner">
+    <p class="sec-label">Contact</p>
+    <div class="sec-divider"></div>
     <p class="limit-badge">今月 残り数名</p>
     <h2>「また今度」を繰り返してきた体に、今夜、向き合いませんか。</h2>
-    <p style="margin: 20px 0 32px; font-family:sans-serif; font-size:16px; color:#ccc;">初回の方は、モニター価格¥10,000でご案内します。<br>相談だけでも、大丈夫です。</p>
+    <p style="margin: 20px 0 32px; font-family:sans-serif; font-size:15px; color:#a09080; line-height:2;">初回の方は、モニター価格¥10,000でご案内します。<br>相談だけでも、大丈夫です。</p>
 
     <!-- LINEリダイレクト用（友だち追加URLに変更） -->
     <!-- <meta http-equiv="refresh" content="0.1;URL=https://line.me/R/ti/p/@YOUR_LINE_ID"> -->
