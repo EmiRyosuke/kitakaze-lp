@@ -359,39 +359,46 @@
       line-height: 1.9;
       margin-bottom: 48px;
     }
-    .trust-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: rgba(184,150,90,.15);
-      border: 1px solid rgba(184,150,90,.15);
-    }
+    .trust-list { display: flex; flex-direction: column; }
     .trust-item {
-      text-align: center;
-      padding: 36px 16px;
-      background: rgba(255,255,255,.03);
+      display: grid;
+      grid-template-columns: 3px 1fr;
+      gap: 0 24px;
+      padding: 32px 0;
+      border-bottom: 1px solid rgba(184,150,90,.12);
+      align-items: start;
     }
-    .trust-item__num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 40px;
+    .trust-item:first-child { border-top: 1px solid rgba(184,150,90,.12); }
+    .trust-item__bar {
+      width: 3px;
+      height: 100%;
+      min-height: 48px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      margin-top: 4px;
+    }
+    .trust-item__content {}
+    .trust-item__title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 17px;
       font-weight: 300;
-      color: var(--gold-lt);
-      line-height: 1.1;
+      color: #f0ebe0;
       letter-spacing: 2px;
+      line-height: 1.5;
+      margin-bottom: 8px;
     }
-    .trust-item__label {
+    .trust-item__desc {
       font-family: sans-serif;
-      font-size: 10px;
-      letter-spacing: 2px;
-      color: #6a6050;
-      margin-top: 10px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: #a09070;
+      line-height: 1.8;
     }
     .trust-note {
-      margin-top: 32px;
+      margin-top: 40px;
       font-family: sans-serif;
       font-size: 11px;
       letter-spacing: 2px;
-      color: #8a7a62;
+      color: #7a6a52;
       text-align: center;
     }
 
@@ -762,13 +769,13 @@
     コリの根っこに届く鍼治療。
   </p>
   <a href="#contact" class="btn btn-outline">LINE で初回相談する — 初回 ¥10,000</a>
-  <p class="btn-note">相談だけでも大丈夫です　·　予約後キャンセル可</p>
+  <p class="btn-note">相談だけでも大丈夫です</p>
   <div class="hero__scroll">SCROLL</div>
 </section>
 
 <!-- INTRO STRIP -->
 <div class="intro-strip">
-  鍼灸師歴10年 &nbsp;·&nbsp; 施術実績1,000人以上 &nbsp;·&nbsp; 月10名限定 &nbsp;·&nbsp; 夜21〜23時 &nbsp;·&nbsp; 飯田橋駅B3出口 徒歩2分
+  鍼灸師歴10年 &nbsp;·&nbsp; 施術実績1,000人以上 &nbsp;·&nbsp; 月10名限定 &nbsp;·&nbsp; 夜21〜23時 &nbsp;·&nbsp; 東京メトロ飯田橋B3出口 徒歩3分 ／ JR飯田橋西口 徒歩5分
 </div>
 
 <!-- PROBLEM -->
@@ -851,26 +858,38 @@
   <div class="inner">
     <p class="label">Trust</p>
     <div class="divider"></div>
-    <h2>10年、1,000人以上の体と<br>向き合ってきた実績</h2>
-    <div class="trust-grid">
+    <h2>鍼処北風が<br>こだわっていること</h2>
+    <div class="trust-list">
       <div class="trust-item">
-        <p class="trust-item__num">10</p>
-        <p class="trust-item__label">YEARS · 鍼灸師歴</p>
+        <div class="trust-item__bar"></div>
+        <div class="trust-item__content">
+          <p class="trust-item__title">完全個室</p>
+          <p class="trust-item__desc">他の患者と顔を合わせません。入口から退出まで、あなただけの空間です。</p>
+        </div>
       </div>
       <div class="trust-item">
-        <p class="trust-item__num">1,000<span style="font-size:22px;">+</span></p>
-        <p class="trust-item__label">CASES · 施術実績</p>
+        <div class="trust-item__bar"></div>
+        <div class="trust-item__content">
+          <p class="trust-item__title">完全予約制</p>
+          <p class="trust-item__desc">待合室での待ち時間はありません。予約した時間に、すぐ施術が始まります。</p>
+        </div>
       </div>
       <div class="trust-item">
-        <p class="trust-item__num">10</p>
-        <p class="trust-item__label">CLIENTS / MONTH · 月限定</p>
+        <div class="trust-item__bar"></div>
+        <div class="trust-item__content">
+          <p class="trust-item__title">夜21〜23時だけ開ける</p>
+          <p class="trust-item__desc">昼間に来られない、働く人のための時間帯です。仕事帰りにそのまま来られます。</p>
+        </div>
       </div>
       <div class="trust-item">
-        <p class="trust-item__num">21<span style="font-size:22px;">〜</span>23</p>
-        <p class="trust-item__label">HOURS · 夜間限定営業</p>
+        <div class="trust-item__bar"></div>
+        <div class="trust-item__content">
+          <p class="trust-item__title">月10名まで</p>
+          <p class="trust-item__desc">それ以上は受けません。一人の体に集中できる人数として、この上限を守っています。</p>
+        </div>
       </div>
     </div>
-    <p class="trust-note">鍼灸師国家資格 ／ ルート治療認定 ／ 飯田橋駅B3出口 徒歩2分</p>
+    <p class="trust-note">鍼灸師国家資格 ／ 鍼灸師歴10年・施術実績1,000人以上</p>
   </div>
 </section>
 
@@ -1035,7 +1054,7 @@
       相談だけでも、大丈夫です。
     </p>
     <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="btn btn-outline">LINE で今月の枠を確認する</a>
-    <p class="btn-note">相談無料 · 予約後キャンセル可</p>
+    <p class="btn-note">相談無料</p>
     <p class="disclaimer">
       ＊「必ず治る」を約束するものではありません。体質・症状により個人差があります。<br>
       ＊「治る」「治します」等の表現は使用していません（薬機法・景表法準拠）
@@ -1047,7 +1066,7 @@
 <footer>
   <p class="footer-logo">鍼処北風</p>
   <p>東京都千代田区 飯田橋 &nbsp;·&nbsp; 夜21:00〜23:00</p>
-  <p>完全個室 · 完全予約制 · 飯田橋駅B3出口 徒歩2分</p>
+  <p>完全個室 · 完全予約制 · 東京メトロ飯田橋B3出口 徒歩3分 ／ JR飯田橋西口 徒歩5分</p>
   <p style="margin-top:20px;">© 2026 Haridokoro Kitakaze</p>
 </footer>
 
